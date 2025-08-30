@@ -10,7 +10,7 @@
 /* Make Montserrat the default font for all pages. */
 @font-face {
     font-family: montserrat;
-    src: url(../fonts/MontserratAlt1-SemiBold.ttf);
+    src: url(assets/fonts/MontserratAlt1-SemiBold.ttf);
 }
 
 body { background-color: #040511; }
@@ -27,9 +27,6 @@ header {
 
 /*Lunarflame Logo Image*/
 header img, .home-header nav img { width: 28.125vw; }
-
-/* Top Menu Buttons (HOME, ABOUT, PROJECTS, BLOG)  */
-.nav-links, .social-links { flex: 1; }
 
 /* Top Menu Buttons */
 header > nav { text-align: right; }

@@ -7,6 +7,10 @@
     define('EMPTY_CHAR', '&#8203;');
     define('EMPTY_STRING', '');
 
+    define('IMAGE_ROOT', 'assets/images');
+    define('JS', 'assets/js');
+    define('I_JS', 'assets/importedJS');
+
     define('H1', 'h1');
     define('H2', 'h2');
     define('H3', 'h3');
@@ -20,63 +24,6 @@
 
     define('DEFAULT_PARAGRAPH', P);
     define('DEFAULT_HEADER', H1);
-
-    function getHeader() : void {
-        require('header.php');
-    }
-
-    function getFooter() : void{
-        require('footer.php');
-    }
-
-    function metadata() : void {
-        echo <<<HTML
-            <base href="/">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>My Portfolio - Adrian Cervera</title>
-
-            <link rel="stylesheet" href="style.css">
-            <link rel="stylesheet" href="assets/boxicons/css/boxicons.min.css">
-            <link rel="stylesheet" href="assets/devicon/devicon.min.css">
-        HTML;
-    }
-
-    function endPage() : void {
-        echo <<<HTML
-            <span class="panner" data-cursor="stretch"></span>
-            <span class="pointer"></span>
-
-            <div class="js-links">
-                <script src="javascript/global.js"></script>
-                <script src="assets/js/tweenmax.min.js"></script>
-
-                <script src="javascript/typewrite.js"></script>
-
-                <script src="javascript/images.js"></script>
-                <script src="javascript/animations.js"></script>
-
-                <script src="javascript/cursor.js"></script>
-            </div>
-            <script>
-                var navLinks = document.querySelector("header .nav-links");
-                var socialLinks = document.querySelector(".social-links");
-
-                function showMenu() {
-                    navLinks.style.right = "0";
-                    socialLinks.style.right = "0";
-                }
-
-                function hideMenu() {
-                    navLinks.style.right = "-50vw";
-                    socialLinks.style.right = "-50vw";
-                }
-            </script>
-        HTML;
-    }
-
-    function getRecentPosts() : void {
-        require('recent-posts.php');
-    }
 
     function gradient(int $color, string $content) : void {
         echo Text::gradient($color, DEFAULT_HEADER, $content);
@@ -140,7 +87,7 @@
             }
 
             // Append the orb image tag
-            $html .= '<img class="orb" id="' . htmlspecialchars($color) . '" src="images/vfx/' . htmlspecialchars($fileName) . '-Glow.png" alt="">' . PHP_EOL;
+            $html .= '<img class="orb" id="' . htmlspecialchars($color) . '" src="' . IMAGE_ROOT . '/vfx/' . htmlspecialchars($fileName) . '-Glow.png" alt="">' . PHP_EOL;
         }
 
         // Close the wrapper div
@@ -414,6 +361,6 @@
     }
 
     function screenshots(string $img) : string {
-        return "images/screenshots/" . $img;
+        return "assets/images/screenshots/" . $img;
     }
 ?>
