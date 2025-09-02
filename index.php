@@ -4,23 +4,18 @@
         <?php
             // Get URL parameters
             $show = isset($_GET['show']) && $_GET['show'] === 'true';
-            require('server.php');
+            require('about-adri.php');
+            require('/var/www/static.lunarflame.dev/partials/server.php');
+
+            Head::new("My Portfolio - Adrian Cervera", "about-adri.css");
         ?>
-
-        <base href="/">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>My Portfolio - Adrian Cervera</title>
-
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="assets/boxicons/css/boxicons.min.css">
-        <link rel="stylesheet" href="assets/devicon/devicon.min.css">
     </head>
 
     <body>
         <div class="adri-background">
             <header>
                 <!--<a href=""><img src="<?=IMAGE_ROOT?>/Lunarflame_Logo.png"></a>-->
-                <nav class="nav-links">
+                <nav class="nav-links" style="flex: none;">
                     <i class="bx bx-x" onclick="hideMenu()"></i>
                     <ul>
                         <li><a class="hover" id="light-blue" href="https://lunarflame.dev">LunarFlame Studios Website</a></li>
@@ -42,7 +37,7 @@
                 <main>
                     <div>
                         <span id="profile-pic">
-                            <img id="adri-pfp" src="<?=IMAGE_ROOT?>/adri_pfp.jpg" alt="">
+                            <img id="adri-pfp" src="<?=DEVS?>/adri_pfp.jpg" alt="">
                         </span>
                         <div>
                             <?php typewrite("Hi! I'm a computer Science Major at WPI. I like playing video games and making video games!"); ?>
@@ -123,7 +118,7 @@
                                         "#B4A0C8",
                                         "Core Gameplay Mechanics",
                                         "Implemented the core gameplay mechanics of Project Leo, including player movement, obstacle generation, and level progression. Utilized Unity's physics engine to create a responsive and engaging gameplay experience.",
-                                        IMAGE_ROOT . "/PL_SS_1.png",
+                                        SS . "/PL_SS_1.png",
                                         false
                                     );
 
@@ -131,7 +126,7 @@
                                         "#A9DAE4",
                                         "Shop, Currency, and Inventory",
                                         "Developed the shop system, allowing players to purchase upgrades and items using in-game currency. Implemented an inventory system to manage player items and upgrades.",
-                                        IMAGE_ROOT . "/PL_SS_2.png",
+                                        SS . "/PL_SS_2.png",
                                         true
                                     );
 
@@ -139,7 +134,7 @@
                                         "#B193C4",
                                         "Level Design and World Building",
                                         "Designed and implemented the mission system, providing players with objectives to complete for rewards. Integrated mission tracking and completion feedback into the user interface.",
-                                        IMAGE_ROOT . "/PL_SS_3.png",
+                                        SS . "/PL_SS_3.png",
                                         false
                                     );
 
@@ -147,7 +142,7 @@
                                         "#CDCDE0",
                                         "Cloud and Local Saves",
                                         "Implemented cloud saving functionality to ensure player progress is saved across sessions. Developed local save systems for offline play, allowing players to continue their progress without an internet connection.",
-                                        IMAGE_ROOT . "/PL_SS_4.png",
+                                        SS . "/PL_SS_4.png",
                                         true
                                     );
                                 ?>
@@ -183,30 +178,7 @@
                 <h1 onclick="changeCursorColor()">Copyright © 2024 LunarFlame Studios</h1>
             </nav>
         </section>
-
-        <span class="panner" data-cursor="stretch"></span>
-        <span class="pointer"></span>
-
-        <div class="js-links">
-            <script src="<?=I_JS?>/tweenmax.min.js"></script>
-
-            <script src="<?=JS?>/typewrite.js"></script>
-            <script src="<?=JS?>/images.js"></script>
-            <script src="<?=JS?>/cursor.js"></script>
-        </div>
-        <script>
-            var navLinks = document.querySelector("header .nav-links");
-            var socialLinks = document.querySelector(".social-links");
-
-            function showMenu() {
-                navLinks.style.right = "0";
-                socialLinks.style.right = "0";
-            }
-
-            function hideMenu() {
-                navLinks.style.right = "-50vw";
-                socialLinks.style.right = "-50vw";
-            }
-        </script>
+        
+        <?php getJavascript(); ?>
     </body>
 </html>
